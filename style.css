@@ -1,0 +1,15 @@
+.row {
+    display: flex;
+    border: solid 1px black;
+    
+}
+.column {
+border: solid 1px black;
+flex: auto;
+background-color: lightblue;
+}
+.grid{
+    display: flex;
+    flex-direction: column;
+    margin: 50px;
+}
