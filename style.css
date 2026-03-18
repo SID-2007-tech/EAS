@@ -1,10 +1,10 @@
 .row {
     display: flex;
-    border: solid 1px black;
+    
     
 }
 .column {
-border: solid 1px black;
+
 flex: auto;
 background-color: lightblue;
 }
