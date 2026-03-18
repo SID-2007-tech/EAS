@@ -8,7 +8,7 @@ function askGridSize() {
   return gridSize;
 }
 function createGrid(gridSize) {
-  let h = (window.innerHeight - 100) / gridSize;
+  
   const grid = document.createElement("div");
   grid.classList.add("grid");
   const row = document.createElement("div");
@@ -21,7 +21,7 @@ function createGrid(gridSize) {
   for (let i = 1; i <= gridSize; i++) grid.appendChild(row.cloneNode(true));
   document.body.appendChild(grid);
   let allCol = document.querySelectorAll(".column");
-  allCol.forEach((x) => resizer(x, h));
+  allCol.forEach((x) => resizer(x,gridSize));
 }
 function resetPage() {
   console.log("resetPage function invoked");
@@ -36,9 +36,17 @@ function resetPage() {
 function changeColor(x) {
   x.style.backgroundColor = "red";
 }
- function resizer(x, h) {
+
+ function resizer(x,gridSize) {
+  let h = (window.innerHeight - 100) / gridSize;
   console.log("resizer function invoked")
   x.style.height = h + "px";
+
+  let mgn = (window.innerWidth - gridSize*h )/2;
+  console.log("mgn = ", mgn);
+  const grid = document.querySelector(".grid");
+  grid.style.marginLeft = mgn + "px";
+  grid.style.marginRight = mgn + "px";
   x.style.width = h + "px";
 }
 const resetBtn = document.querySelector("#resetBtn");
